@@ -42,4 +42,15 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <Button
+        android:id="@+id/button_subscriber"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/subscriber_button"
+        app:layout_constraintEnd_toEndOf="@id/input_layout_email"
+        app:layout_constraintStart_toStartOf="@id/input_layout_email"
+        app:layout_constraintTop_toBottomOf="@id/input_layout_email"/>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
