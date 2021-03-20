@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/app_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/nav_host_fragment"
@@ -20,18 +32,5 @@
         app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/main_graph" />
 
-<!--    or create a new repository on the command line-->
-<!--    echo "# my-subscribers" >> README.md-->
-<!--    git init-->
-<!--    git add README.md-->
-<!--    git commit -m "first commit"-->
-<!--    git branch -M main-->
-<!--    git remote add origin git@github.com:dijoncavalcante/my-subscribers.git-->
-<!--    git push -u origin main-->
-
-<!--    …or push an existing repository from the command line-->
-<!--    git remote add origin git@github.com:dijoncavalcante/my-subscribers.git-->
-<!--    git branch -M main-->
-<!--    git push -u origin main-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
