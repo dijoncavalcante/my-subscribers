@@ -39,7 +39,13 @@ class SubscriberListFragment : Fragment(R.layout.subscriber_list_fragment) {
 
     private fun observeViewModelEvents() {
         viewModel.allSubscribersEvent.observe(viewLifecycleOwner) { allSubscribers ->
-            val subscriberListAdapter = SubscriberListAdapter(allSubscribers)
+            val subscriberListAdapter = SubscriberListAdapter(allSubscribers).apply {
+                onItemClick = { subscriber ->
+                    val directions = SubscriberListFragmentDirections
+                        .actionSubscriberListFragmentToSubscriberFragment(subscriber)
+                    findNavController().navigateWithAnimations(directions)
+                }
+            }
 
             //otimização do kotlin para renomear apenas uma vez, caso o nome do recyclerview mudar
             with(recycler_subscribers) {
@@ -48,15 +54,18 @@ class SubscriberListFragment : Fragment(R.layout.subscriber_list_fragment) {
             }
         }
     }
+
     //quando voltar para a tela anterior, getSubscribers() forca uma nova busca dos dados cadstrados na base de dados
     override fun onResume() {
         super.onResume()
         viewModel.getSubscribers()
     }
 
-    private fun configureViewListeners(){
-        fabAddSubscriber.setOnClickListener{
-            findNavController().navigateWithAnimations(R.id.subscriberFragment)
+    private fun configureViewListeners() {
+        fabAddSubscriber.setOnClickListener {
+            findNavController().navigateWithAnimations(
+                R.id.action_subscriberListFragment_to_subscriberFragment
+            )
         }
     }
 }

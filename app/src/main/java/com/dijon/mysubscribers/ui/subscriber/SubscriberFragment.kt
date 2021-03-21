@@ -8,6 +8,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.dijon.mysubscribers.R
 import com.dijon.mysubscribers.data.db.AppDataBase
 import com.dijon.mysubscribers.data.db.dao.SubscriberDAO
@@ -32,8 +33,19 @@ class SubscriberFragment : Fragment(R.layout.subscriber_fragment) {
         }
     }
 
+    //SubscriberFragmentArgs class genereted automatic
+    private val args: SubscriberFragmentArgs by navArgs()
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        //caso  onj subscriber seja nulo a operação é insert, senão a operação é update
+        args.subscriber?.let { subscriber ->
+            button_subscriber.text = getString(R.string.subscriber_button_update)
+            input_name.setText(subscriber.name)
+            input_email.setText(subscriber.email)
+
+        }
 
         observeEvents()//observar os eventos do view model e escutar os liveData
         setListeners()//escutar os eventos de click da view e outros eventos
@@ -50,6 +62,11 @@ class SubscriberFragment : Fragment(R.layout.subscriber_fragment) {
 
                     requireView().requestFocus()
 
+                    findNavController().popBackStack()
+                }
+                is SubscriberViewModel.SubscriberState.Updated -> {
+                    clearFields()
+                    hideKeyboard()
                     findNavController().popBackStack()
                 }
             }
@@ -77,7 +94,7 @@ class SubscriberFragment : Fragment(R.layout.subscriber_fragment) {
         button_subscriber.setOnClickListener {
             val name = input_name.text.toString()
             val email = input_email.text.toString()
-            viewModel.addSubscriber(name, email)
+            viewModel.addOrUpdateSubscriber(name, email, args.subscriber?.id ?: 0)
         }
     }
 }
