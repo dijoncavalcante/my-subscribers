@@ -32,18 +32,18 @@ class SubscriberListFragment : Fragment(R.layout.subscriber_list_fragment) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        observeViewModelEvents()
+    }
 
-        val subscriberListAdapter = SubscriberListAdapter(
-            listOf(
-                SubscriberEntity(1, "Dijon", "dijon@hotmail.com"),
-                SubscriberEntity(2, "Braga", "braga@hotmail.com")
-            )
-        )
-
-        //otimização do kotlin para renomear apenas uma vez, caso o nome do recyclerview mudar
-        recycler_subscribers.run {
-            setHasFixedSize(true)//todos os itens irão ser do mesmo tamanho
-            adapter = subscriberListAdapter
+    private fun observeViewModelEvents() {
+        viewModel.allSubscribersEvent.observe(viewLifecycleOwner) { allSubscribers ->
+            val subscriberListAdapter = SubscriberListAdapter(allSubscribers)
+            //otimização do kotlin para renomear apenas uma vez, caso o nome do recyclerview mudar
+            recycler_subscribers.run {
+                setHasFixedSize(true)//todos os itens irão ser do mesmo tamanho
+                adapter = subscriberListAdapter
+            }
         }
+
     }
 }
