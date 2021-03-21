@@ -9,10 +9,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.dijon.mysubscribers.R
 import com.dijon.mysubscribers.data.db.AppDataBase
 import com.dijon.mysubscribers.data.db.dao.SubscriberDAO
-import com.dijon.mysubscribers.data.db.entity.SubscriberEntity
 import com.dijon.mysubscribers.repository.DatabaseDataSource
 import com.dijon.mysubscribers.repository.SubscriberRepository
-import com.dijon.mysubscribers.ui.subscriber.SubscriberViewModel
 import kotlinx.android.synthetic.main.subscriber_list_fragment.*
 
 class SubscriberListFragment : Fragment(R.layout.subscriber_list_fragment) {
