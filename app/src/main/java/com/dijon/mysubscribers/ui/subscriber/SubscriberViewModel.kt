@@ -56,10 +56,24 @@ class SubscriberViewModel(
         }
     }
 
+    fun removeSubscriber(id: Long) = viewModelScope.launch {
+        try {
+            if (id > 0) {
+                repository.deleteSubscriber(id)
+                _subscriberStateEventData.value = SubscriberState.Deleted
+                _messageEventData.value = R.string.subscriber_deleted_successfully
+            }
+        } catch (ex: Exception) {
+            _messageEventData.value = R.string.subscriber_error_to_delete
+            Log.e(TAG, ex.toString())
+        }
+    }
+
     //defini qual o estado é da ação
     sealed class SubscriberState {
         object Inserted : SubscriberState()
         object Updated : SubscriberState()
+        object Deleted : SubscriberState()
     }
 
     companion object {
