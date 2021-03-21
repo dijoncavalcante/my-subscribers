@@ -48,6 +48,11 @@ class SubscriberListFragment : Fragment(R.layout.subscriber_list_fragment) {
             }
         }
     }
+    //quando voltar para a tela anterior, getSubscribers() forca uma nova busca dos dados cadstrados na base de dados
+    override fun onResume() {
+        super.onResume()
+        viewModel.getSubscribers()
+    }
 
     private fun configureViewListeners(){
         fabAddSubscriber.setOnClickListener{

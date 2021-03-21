@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.dijon.mysubscribers.R
 import com.dijon.mysubscribers.data.db.AppDataBase
 import com.dijon.mysubscribers.data.db.dao.SubscriberDAO
@@ -46,6 +47,10 @@ class SubscriberFragment : Fragment(R.layout.subscriber_fragment) {
                     clearFields()
                     //forçar esconder teclado
                     hideKeyboard()
+
+                    requireView().requestFocus()
+
+                    findNavController().popBackStack()
                 }
             }
         }
