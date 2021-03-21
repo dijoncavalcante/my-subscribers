@@ -55,7 +55,6 @@ class SubscriberFragment : Fragment(R.layout.subscriber_fragment) {
         }
     }
 
-
     private fun clearFields() {
         input_name.text?.clear()
         input_email.text?.clear()
@@ -73,7 +72,6 @@ class SubscriberFragment : Fragment(R.layout.subscriber_fragment) {
         button_subscriber.setOnClickListener {
             val name = input_name.text.toString()
             val email = input_email.text.toString()
-
             viewModel.addSubscriber(name, email)
         }
     }
