@@ -5,7 +5,7 @@ This project have goal to show how to build a CRUD using:</br>
 - Good practices
 - MVVM architecture
 - Kotlin Coroutines
-- Jetpack Room API
+- Jetpack Room
 - Jetpack Navigation component
 - Jetpack LiveData.
 
@@ -14,10 +14,9 @@ This project make use some technologies requested by market to help in some scen
 
 # Technologies
 This project use the follow technologies and tools:
-- The language to build this App was [Kotlin](https://developer.android.com/kotlin/androidbasics) - Android Basics in Kotlin.
-- [Jetpack Room](https://developer.android.com/jetpack/androidx/releases/room) - Create, store, and manage persistent data backed by a SQLite database.
-- [Jetpack Navigation](https://developer.android.com/jetpack/androidx/releases/navigation) - Build and structure your in-app UI, handle deep links, and navigate between screens.
-- [Jetpack Lifecycle](https://developer.android.com/jetpack/androidx/releases/lifecycle) - Build lifecycle-aware components that can adjust behavior based on the current lifecycle state of an activity or fragment.
+- [Room](https://developer.android.com/jetpack/androidx/releases/room) - Create, store, and manage persistent data backed by a SQLite database.
+- [Navigation](https://developer.android.com/jetpack/androidx/releases/navigation) - Build and structure your in-app UI, handle deep links, and navigate between screens.
+- [LiveData](https://developer.android.com/jetpack/androidx/releases/lifecycle) - Build lifecycle-aware components that can adjust behavior based on the current lifecycle state of an activity or fragment.
 - [Kotlin Coroutines](https://developer.android.com/kotlin/coroutines) - A coroutine is a concurrency design pattern that you can use on Android to simplify code that executes asynchronously.
 - [Recyclerview](https://developer.android.com/guide/topics/ui/layout/recyclerview?hl=pt-br) - Display large sets of data in your UI while minimizing memory usage.
 - [Cardview](https://developer.android.com/guide/topics/ui/layout/cardview?hl=pt-br) - A FrameLayout with a rounded corner background and shadow.
