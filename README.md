@@ -1,3 +1,7 @@
+# Layout
+<img src="app/src/main/res/screenshot/crud.gif" width="250">
+
+
 # Welcome to My Subscribers App!
 Project created to demonstrate some android apps development concepts. (personal)</br>
 This project have goal to show how to build a CRUD using:</br>
@@ -23,6 +27,3 @@ This project use the follow technologies and tools:
 - [MVVM Architecture](https://medium.com/upday-devs/android-architecture-patterns-part-3-model-view-viewmodel-e7eeee76b73b) - Model-View-ViewModel Pattern.
 
 [For mode details click here](https://developer.android.com/jetpack/)
-	
-# Layout
-<img src="app/src/main/res/screenshot/crud.gif" width="250">
